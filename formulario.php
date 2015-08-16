@@ -333,7 +333,7 @@ $sqlF = "SELECT a.*,
           </div>
         </div>
         <span>Para completar o seu currículo, passe para a próxima etapa.</span><br>
-        <a href="#" class="btn btn-success next-step">Próxima etapa</a>
+        <a href="#" class="btn btn-success next-step pull-right">Próxima etapa</a>
 
     </div>
     
@@ -355,7 +355,8 @@ $sqlF = "SELECT a.*,
           <a class="btn adicionarNovaFormacao pull-right btn-primary">adicionar mais</a>
         </div>
         <span>Para completar o seu currículo, passe para a próxima etapa.</span><br>
-        <a href="#" class="btn btn-success next-step">Próxima etapa</a>
+        <a href="#" class="btn btn-success next-step pull-right">Próxima etapa</a>
+        <a href="#" class="btn btn-success prev-step">Etapa anterior</a>
     </div>
     
     <div id="experienciaProfissional" style="display:none;">
@@ -375,7 +376,8 @@ $sqlF = "SELECT a.*,
           <a class="btn adicionarNovaExperiencia pull-right btn-primary">adicionar mais</a>
         </div>
         <span>Para completar o seu currículo, passe para a próxima etapa.</span><br>
-        <a href="#" class="btn btn-success next-step">Próxima etapa</a>
+        <a href="#" class="btn btn-success next-step pull-right">Próxima etapa</a>
+        <a href="#" class="btn btn-success prev-step">Etapa anterior</a>
     </div>
     
   <div id="cursosPalestras" style="display:none;">
@@ -395,7 +397,8 @@ $sqlF = "SELECT a.*,
           <a class="btn adicionarNovaCursoPalestra pull-right btn-primary">adicionar mais</a>
         </div>
         <span>Para completar o seu currículo, passe para a próxima etapa.</span><br>
-        <a href="#" class="btn btn-success next-step">Próxima etapa</a>
+        <a href="#" class="btn btn-success next-step pull-right">Próxima etapa</a>
+        <a href="#" class="btn btn-success prev-step">Etapa anterior</a>
     </div>
 
     <? #Idiomas ?>
@@ -416,7 +419,8 @@ $sqlF = "SELECT a.*,
           <a class="btn adicionarNovaIdioma pull-right btn-primary">adicionar mais</a>
         </div>
         <span>Para completar o seu currículo, passe para a próxima etapa.</span><br>
-        <a href="#" class="btn btn-success next-step">Próxima etapa</a>
+        <a href="#" class="btn btn-success next-step pull-right">Próxima etapa</a>
+        <a href="#" class="btn btn-success prev-step">Etapa anterior</a>
     </div>
     <? #Fim idiomas ?>
 
@@ -433,8 +437,7 @@ $sqlF = "SELECT a.*,
             }else{ 
                   include( plugin_dir_path( __FILE__ ) . 'include/_conhecimento_tecnico.php' );
             }
-        ?>
-        
+        ?>        
     </div>
     <? #Fim conhecimento ?>
     

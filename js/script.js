@@ -73,24 +73,23 @@
 			
 		});
 		
-		$('#bt_dadosPessoais').click(function(){
+		$('#bt_dadosPessoais, #formacaoAcademica a.prev-step').click(function(){
 			abaCategorias('dadosPessoais');
 		});
 		
-		$('#bt_formacaoAcademica, #dadosPessoais a.next-step').click(function(){
-			console.log('heere;');
+		$('#bt_formacaoAcademica, #dadosPessoais a.next-step, #experienciaProfissional a.prev-step').click(function(){			
 			abaCategorias('formacaoAcademica');
 		});
 		
-		$('#bt_experienciaProfissional, #formacaoAcademica a.next-step').click(function(){
+		$('#bt_experienciaProfissional, #formacaoAcademica a.next-step, #cursosPalestras a.prev-step').click(function(){
 			abaCategorias('experienciaProfissional');
 		});
 		
-		$('#bt_cursosPalestras, #experienciaProfissional a.next-step').click(function(){
+		$('#bt_cursosPalestras, #experienciaProfissional a.next-step, #idiomas a.prev-step').click(function(){
 			abaCategorias('cursosPalestras');
 		});
 
-		$('#bt_idiomas, #cursosPalestras a.next-step').click(function(){
+		$('#bt_idiomas, #cursosPalestras a.next-step, #conhecimentoTecnico a.prev-step').click(function(){
 			abaCategorias('idiomas');
 		});
 
