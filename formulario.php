@@ -333,6 +333,7 @@ $sqlF = "SELECT a.*,
           </div>
         </div>
         <span>Para completar o seu currículo, passe para a próxima etapa.</span><br>
+        <a href="#" class="btn btn-success next-step">Próxima etapa</a>
 
     </div>
     
@@ -354,6 +355,7 @@ $sqlF = "SELECT a.*,
           <a class="btn adicionarNovaFormacao pull-right btn-primary">adicionar mais</a>
         </div>
         <span>Para completar o seu currículo, passe para a próxima etapa.</span><br>
+        <a href="#" class="btn btn-success next-step">Próxima etapa</a>
     </div>
     
     <div id="experienciaProfissional" style="display:none;">
@@ -373,6 +375,7 @@ $sqlF = "SELECT a.*,
           <a class="btn adicionarNovaExperiencia pull-right btn-primary">adicionar mais</a>
         </div>
         <span>Para completar o seu currículo, passe para a próxima etapa.</span><br>
+        <a href="#" class="btn btn-success next-step">Próxima etapa</a>
     </div>
     
   <div id="cursosPalestras" style="display:none;">
@@ -392,6 +395,7 @@ $sqlF = "SELECT a.*,
           <a class="btn adicionarNovaCursoPalestra pull-right btn-primary">adicionar mais</a>
         </div>
         <span>Para completar o seu currículo, passe para a próxima etapa.</span><br>
+        <a href="#" class="btn btn-success next-step">Próxima etapa</a>
     </div>
 
     <? #Idiomas ?>
@@ -412,6 +416,7 @@ $sqlF = "SELECT a.*,
           <a class="btn adicionarNovaIdioma pull-right btn-primary">adicionar mais</a>
         </div>
         <span>Para completar o seu currículo, passe para a próxima etapa.</span><br>
+        <a href="#" class="btn btn-success next-step">Próxima etapa</a>
     </div>
     <? #Fim idiomas ?>
 

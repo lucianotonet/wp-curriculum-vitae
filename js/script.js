@@ -77,23 +77,24 @@
 			abaCategorias('dadosPessoais');
 		});
 		
-		$('#bt_formacaoAcademica').click(function(){
+		$('#bt_formacaoAcademica, #dadosPessoais a.next-step').click(function(){
+			console.log('heere;');
 			abaCategorias('formacaoAcademica');
 		});
 		
-		$('#bt_experienciaProfissional').click(function(){
+		$('#bt_experienciaProfissional, #formacaoAcademica a.next-step').click(function(){
 			abaCategorias('experienciaProfissional');
 		});
 		
-		$('#bt_cursosPalestras').click(function(){
+		$('#bt_cursosPalestras, #experienciaProfissional a.next-step').click(function(){
 			abaCategorias('cursosPalestras');
 		});
 
-		$('#bt_idiomas').click(function(){
+		$('#bt_idiomas, #cursosPalestras a.next-step').click(function(){
 			abaCategorias('idiomas');
 		});
 
-		$('#bt_conhecimentoTecnico').click(function(){
+		$('#bt_conhecimentoTecnico, #idiomas a.next-step').click(function(){
 			abaCategorias('conhecimentoTecnico');
 		});
 		
