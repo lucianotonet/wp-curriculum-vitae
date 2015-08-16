@@ -46,7 +46,7 @@
   </div>
   
   <div class="remover-adicionar">
-    <a class="btn removerCursoPalestra pull-left btn-danger">remover</a>
+    <a class="btn removerCursoPalestra btn-danger">remover</a>
   </div>
   
 </div>

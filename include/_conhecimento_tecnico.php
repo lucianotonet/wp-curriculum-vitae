@@ -19,13 +19,10 @@
   </div>
 
   <div class="remover-adicionar">
-    <a class="btn removerConhecimentoTecnico pull-right btn-danger">remover</a>
+    <a class="btn removerConhecimentoTecnico btn-danger">remover</a>
   </div>
   
 </div>
   <div class="adicionar-btn">
     <a class="btn adicionarNovaConhecimentoTecnico pull-right btn-primary">adicionar mais</a>
   </div>
-
-  <a href="#" class="btn btn-success prev-step">Etapa anterior</a>
-  <button type="submit" id="cadastrar" name="cadastrar" class="btn btn-primary">Cadastrar Currículo</button>

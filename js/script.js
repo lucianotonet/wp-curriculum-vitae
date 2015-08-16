@@ -118,6 +118,56 @@
 			
 			$('#'+aba).css('display', 'block');
 		}
+
+
+		//
+		$('#cadastrar').click(function(event) {		
+			var errors;
+			/* Act on the event */			
+			$( ':input[required]', '#conhecimentoTecnico' ).each( function (index, el) {
+				if ( el.value.trim() == '' ) {
+			    	abaCategorias('conhecimentoTecnico');	
+			    	errors = true;
+			    }
+			});
+			$( ':input[required]', '#idiomas' ).each( function (index, el) {
+				if ( el.value.trim() == '' ) {
+			    	abaCategorias('idiomas');
+			    	errors = true;
+			    }
+			});
+			$( ':input[required]', '#cursosPalestras' ).each( function (index, el) {
+				if ( el.value.trim() == '' ) {
+			    	abaCategorias('cursosPalestras');	
+			    	errors = true;
+			    }
+			});
+			$( ':input[required]', '#experienciaProfissional' ).each( function (index, el) {
+				if ( el.value.trim() == '' ) {
+			    	abaCategorias('experienciaProfissional');	
+			    	errors = true;
+			    }
+			});
+			$( ':input[required]', '#formacaoAcademica' ).each( function (index, el) {
+				if ( el.value.trim() == '' ) {
+			    	abaCategorias('formacaoAcademica');	
+			    	errors = true;		
+			    }
+			});
+			$( ':input[required]', '#dadosPessoais' ).each( function (index, el) {
+				if ( el.value.trim() == '' ) {
+			    	abaCategorias('dadosPessoais');	
+			    	errors = true;	
+			    }
+			});
+		
+			if( errors === true ){
+				$('#wp-curriculo-cadastro .message-warning').remove();
+				$('#wp-curriculo-cadastro').prepend('<div class="row message-warning"><div class="col-md-12"><div class="alert alert-danger">Há campos que precisam ser preenchidos. Por favor verifique.</div></div></div>');
+			}
+
+		});
+	
 		
 	});
 	
@@ -444,6 +494,7 @@
 				});
 			});
 		});
+
 	});
 	
 	

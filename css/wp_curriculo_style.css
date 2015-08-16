@@ -32,17 +32,17 @@ hr{ margin:1px 0 4px 0; border-top:black solid 1px; border-bottom:none; }
 #msgCpf{ display:none; color:#F00; }
 #msgFile{ display:none; color:#F00; }
 
-.adicionarNovaFormacao{ cursor:pointer; display: block; margin-bottom: 15px; margin-top: -52px; }
-.removerFormacao{ cursor:pointer; float: right; margin:0 -20px 0 0; }
+.adicionarNovaFormacao{ cursor:pointer; /*display: block;*/ margin-bottom: 15px; margin-top: -52px; }
+.removerFormacao{ cursor:pointer; /*float: right;*/ margin:0 -20px 0 0; }
 
-.adicionarNovaExperiencia{ cursor:pointer; display: block; margin-bottom: 15px; margin-top: -52px; }
-.removerExperiencia{ cursor:pointer; float: right; margin:0 -20px 0 0; }
+.adicionarNovaExperiencia{ cursor:pointer; /*display: block;*/ margin-bottom: 15px; margin-top: -52px; }
+.removerExperiencia{ cursor:pointer; /*float: right;*/ margin:0 -20px 0 0; }
 
-.adicionarNovaCursoPalestra{ cursor:pointer; display: block; margin-bottom: 15px; margin-top: -52px; }
-.removerCursoPalestra{ cursor:pointer; float: right; margin:0 -20px 0 0;}
+.adicionarNovaCursoPalestra{ cursor:pointer; /*display: block;*/ margin-bottom: 15px; margin-top: -52px; }
+.removerCursoPalestra{ cursor:pointer; /*float: right;*/ margin:0 -20px 0 0;}
 
-.removerIdioma{ cursor:pointer; display: block; margin-bottom: 15px; margin-top: 10px; }
-.adicionarNovaIdioma{ cursor:pointer; float: right; margin:-65px -20px 0 0; }
+.removerIdioma{ cursor:pointer; /*display: block;*/ margin-bottom: 15px; margin-top: 10px; }
+.adicionarNovaIdioma{ cursor:pointer; /*float: right;*/ margin:-65px -20px 0 0; }
 
 /*.removerConhecimentoTecnico{ margin-left: -15px; }*/
 .adicionarNovaConhecimentoTecnico{ margin-top: -60px; }

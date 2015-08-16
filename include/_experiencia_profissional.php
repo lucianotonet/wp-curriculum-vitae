@@ -72,7 +72,7 @@
     </div>
     
     <div class="remover-adicionar">
-      <a class="btn removerExperiencia pull-left btn-danger">remover</a>
+      <a class="btn removerExperiencia btn-danger">remover</a>
     </div>
 
 </div>

@@ -65,7 +65,7 @@
   </div>
 
   <div class="remover-adicionar">
-    <a class="btn removerIdioma pull-left btn-danger">remover</a>
+    <a class="btn removerIdioma btn-danger">remover</a>
   </div>
   
 </div>
