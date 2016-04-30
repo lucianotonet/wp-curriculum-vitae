@@ -356,6 +356,23 @@
 	
 	$("a.abrirDescricao").click(function(){
 
+		// Seta como lido (ajax)
+		jQuery.post(
+		    ajaxurl, 
+		    {
+		        'action': 	'set_readed',		        
+		        id: 		$(this).data('id'),
+		    }, 
+		    function(response){
+		    	if( response > 0 ){
+					// Remove label 'NOVO'
+		    		$('#cv_'+response).remove();
+		    	}		        
+		    }
+		);
+
+		
+		// Abre modal
 		var rel = $(this).attr('rel');
 
 		$('#black_overlay').css('display','block');

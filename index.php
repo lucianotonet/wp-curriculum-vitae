@@ -249,5 +249,15 @@ function wpcvp_unistall(){
 	include_once( plugin_dir_path( __FILE__ ) . 'uninstall.php' );
 }
 
- 
-?>
+add_action( 'wp_ajax_set_readed', 'set_readed' );
+function set_readed() {
+	global $wpdb; // this is how you get access to the database
+
+	$change = $wpdb->get_row( "UPDATE `".$wpdb->prefix."wls_curriculo` SET `new` = '0' WHERE `".$wpdb->prefix."wls_curriculo`.`id` = ".$_POST['id'] );
+
+	$check = $wpdb->get_var( "SELECT * FROM `".$wpdb->prefix."wls_curriculo` WHERE `id` = ".$_POST['id'] );
+
+	echo $check;
+
+	wp_die(); // this is required to terminate immediately and return a proper response
+}

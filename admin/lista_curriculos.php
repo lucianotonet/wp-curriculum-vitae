@@ -326,7 +326,7 @@ wp_enqueue_script('wpcvpa_script', plugins_url('js/script.js', __FILE__));
               <tr>
                 <td id="nomeUser_<?php echo $x?>"><?php echo $v->nome ?></td>
                 
-                <td ><a class="abrirDescricao" rel="<?php echo $x; ?>"  style="cursor:pointer;" >Descrição completa</a><?php #echo $v->descricao ?></td>
+                <td ><a class="abrirDescricao" rel="<?php echo $x; ?>" data-id="<?php echo $v->id ?>" style="cursor:pointer;" >Descrição completa</a><?php #echo $v->descricao ?></td>
                 <div style="display:none" id="curriculo_<?php echo $x; ?>" class="wpcv_lightbox_content" >
                     <div class="wpcvcontent" style='display:none; padding:10px; background:#fff; width:680px;'>
                        
@@ -498,7 +498,10 @@ wp_enqueue_script('wpcvpa_script', plugins_url('js/script.js', __FILE__));
                 
                 <td><?php echo $v->area ?></td>
                 
-                <td><?php echo date( 'd/m/Y H:i',strtotime($v->created_at)) ?></td>
+                <td class="text-right">                 
+                  <?php if( $v->new ){ ?><span class="label label-danger" id="cv_<?php echo $v->id ?>">NOVO</span><?php } ?>
+                  <?php echo date( 'd/m/Y H:i', strtotime($v->created_at)) ?>
+                </td>
                 
                 <td style="text-align:center;"><a href="mailto:<?php echo $v->email?>" target="_blank">
                 <img src="<?php echo plugins_url('../img/email.png', __FILE__) ?>" width="16" height="16" alt="<?php echo $v->email?>" /></a></td>

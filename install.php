@@ -45,6 +45,7 @@ global $wpdb, $wpcvp;
 				  descricao 	text 			COLLATE latin1_bin,
 				  status 		int(11) 		NOT NULL DEFAULT '0',
 
+					new 	 	BOOLEAN 		NOT NULL DEFAULT TRUE,
 					created_at 	datetime		COLLATE latin1_bin DEFAULT CURRENT_TIMESTAMP,
 
 				  PRIMARY KEY (id)
