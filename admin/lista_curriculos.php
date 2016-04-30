@@ -294,6 +294,7 @@ wp_enqueue_script('wpcvpa_script', plugins_url('js/script.js', __FILE__));
         <th>Nome</th>
         <th>Descrição</th>
         <th>Área de serviço</th>
+        <th>Data cadastro</th>
         <th width="60" style="text-align:center;">E-mail</th>
         <th width="50" style="text-align:center;">Arquivo</th>
         <th width="50" style="text-align:center;">PDF</th>
@@ -496,6 +497,8 @@ wp_enqueue_script('wpcvpa_script', plugins_url('js/script.js', __FILE__));
                 </div>
                 
                 <td><?php echo $v->area ?></td>
+                
+                <td><?php echo date( 'd/m/Y H:i',strtotime($v->created_at)) ?></td>
                 
                 <td style="text-align:center;"><a href="mailto:<?php echo $v->email?>" target="_blank">
                 <img src="<?php echo plugins_url('../img/email.png', __FILE__) ?>" width="16" height="16" alt="<?php echo $v->email?>" /></a></td>
