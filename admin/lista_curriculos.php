@@ -235,7 +235,7 @@ wp_enqueue_script('wpcvpa_script', plugins_url('js/script.js', __FILE__));
       </div>
     </div>
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="form-group">
                 <label class="control-label">Status:</label>
                 <select name="bstatus" class="form-control" style="height:34px;">
@@ -246,7 +246,7 @@ wp_enqueue_script('wpcvpa_script', plugins_url('js/script.js', __FILE__));
                 </select>
             </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="form-group">
                 
                 <?php
@@ -265,7 +265,7 @@ wp_enqueue_script('wpcvpa_script', plugins_url('js/script.js', __FILE__));
                     </select>
                   </div>
             </div>
-        </div>
+        </div>        
     </div>
     <div class="container-fluid">
         <button type="submit" name="filtrar" id="filtrar" class="btn btn-primary filtrarList" style="">Filtrar</button>  
@@ -330,7 +330,10 @@ wp_enqueue_script('wpcvpa_script', plugins_url('js/script.js', __FILE__));
                 <div style="display:none" id="curriculo_<?php echo $x; ?>" class="wpcv_lightbox_content" >
                     <div class="wpcvcontent" style='display:none; padding:10px; background:#fff; width:680px;'>
                        
-                        <h3><center><?php echo $v->nome ?></center></h3>
+                        <h3>
+                          <center><?php echo $v->nome ?></center>                        
+                        </h3>
+                        <center><?php echo date('d/m/Y H:i', strtotime( $v->created_at )) ?></center>
                         <strong>Dados Pessoais:</strong>
                         <hr style="margin-top:0px; border-top: 1px solid #000;" />
                         

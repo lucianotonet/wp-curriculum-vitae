@@ -249,6 +249,7 @@ function wpcvp_unistall(){
 	include_once( plugin_dir_path( __FILE__ ) . 'uninstall.php' );
 }
 
+// AJAX HANDLER
 add_action( 'wp_ajax_set_readed', 'set_readed' );
 function set_readed() {
 	global $wpdb; // this is how you get access to the database
@@ -261,3 +262,53 @@ function set_readed() {
 
 	wp_die(); // this is required to terminate immediately and return a proper response
 }
+
+
+// ADD TOP MENU
+add_action( 'admin_bar_menu', 'toolbar_curriculos', 999 );
+
+function toolbar_curriculos( $wp_admin_bar ) {
+
+	global $wpdb; // this is how you get access to the database
+	
+	$count = $wpdb->get_var( "SELECT COUNT(*) FROM `".$wpdb->prefix."wls_curriculo` WHERE `new` = 1" );	
+
+	$args = array(
+		'id'    => 'lista-de-curriculos-premium-admin',
+		'title' => 'Currículos',
+		'href'  => admin_url().'admin.php?page=lista-de-curriculos-premium-admin',
+		'meta'  => array( 'class' => '' )
+	);
+	$wp_admin_bar->add_node( $args );
+}
+
+
+// WOrDPRESS NOTICE
+function sample_admin_notice__success() {
+
+	global $wpdb; // this is how you get access to the database
+	
+	$count = $wpdb->get_var( "SELECT COUNT(*) FROM `".$wpdb->prefix."wls_curriculo` WHERE `new` = 1" );	
+
+	if( $count == 1 ){
+		$count = ' um';
+		$label = ' novo currículo';
+	}else
+	if( $count > 1 ){
+		$count = ' '.$count;
+		$label = ' novos currículos';
+	}else{
+		$count = '';
+		$label = '';
+	}
+
+
+	if ($count) {
+		?>
+	    <div class="notice notice-success is-dismissible">
+	        <p><span class="dashicons dashicons-id-alt"></span> Você possui <a href="<?php echo admin_url().'admin.php?page=lista-de-curriculos-premium-admin'; ?>"><?php echo $count.$label ?></a>!</p>
+	    </div>
+	    <?php
+	}
+}
+add_action( 'admin_notices', 'sample_admin_notice__success' );

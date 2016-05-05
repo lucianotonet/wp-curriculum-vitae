@@ -43,14 +43,11 @@ global $wpdb, $wpcvp;
 				  curriculo 	varchar(255) 	COLLATE latin1_bin DEFAULT NULL,
 				  
 				  descricao 	text 			COLLATE latin1_bin,
-				  status 		int(11) 		NOT NULL DEFAULT '0',
-
-					new 	 	BOOLEAN 		NOT NULL DEFAULT TRUE,
-					created_at 	datetime		COLLATE latin1_bin DEFAULT CURRENT_TIMESTAMP,
+				  status 		int(11) 		NOT NULL DEFAULT '0',					
 
 				  PRIMARY KEY (id)
 			)";
-  }
+  }  
 		
   if ( $wpdb->get_var( "SHOW TABLES LIKE '".BD_AREA_SERVICOS."'" ) != BD_AREA_SERVICOS ) {	  		  
 	
@@ -94,6 +91,8 @@ global $wpdb, $wpcvp;
 		
 	
   }
+
+
   
   
   		$sqlOp = "SELECT * FROM ".BD_CONFIGURACOES." where id=1";
@@ -258,10 +257,38 @@ global $wpdb, $wpcvp;
   dbDelta( $sql6 );
   dbDelta( $sql7 );
   dbDelta( $sql8 );
+
+
+
+  	/**
+  	 * Cria as colunas necessárias
+  	 * para a nova versão
+  	 */
+	function updateDataBase()
+	{	
+		global $wpdb;
+
+		// 'NEW' Column
+		$column_new = $wpdb->get_results( "SELECT new FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = '".BD_CURRICULO."' AND column_name = 'new'"  );
+
+		if(empty($column_new)){
+		   $wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD new BOOLEAN NOT NULL DEFAULT TRUE");
+		};
+
+		// 'CREATED_AT' Column
+		$column_created_at = $wpdb->get_results( "SELECT created_at FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = '".BD_CURRICULO."' AND column_name = 'created_at'"  );
+
+		if(empty($column_created_at)){
+		   $wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD created_at datetime	COLLATE latin1_bin DEFAULT CURRENT_TIMESTAMP");
+		}
+	}
+
+	updateDataBase();
+
   
-  $upload = wp_upload_dir();
-  $upload_dir = $upload['basedir'];
-  $upload_dir = $upload_dir . '/curriculos';
+	$upload = wp_upload_dir();
+	$upload_dir = $upload['basedir'];
+	$upload_dir = $upload_dir . '/curriculos';
   
   if (! is_dir($upload_dir)) {
 	 mkdir( $upload_dir, 0777 );
