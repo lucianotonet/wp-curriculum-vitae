@@ -39,8 +39,6 @@ O plugin trabalha com duas versoes:
 12. Shortcode para formulário de cadastro **[formCadastro_cvp]**;
 13. Shortcode para lista de currículos **[listCurriculos_cvp]**;
  
-[Link para para plugin pago](http://williamluis.com.br/loja/)
-
  
 **Como utilizar**
  

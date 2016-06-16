@@ -1,13 +1,13 @@
 <?php
 /*
-Plugin Name: WP-Currículo Vitae - Premium
-Plugin URI: https://github.com/tonetlds/wp-curriculo-vitae
-Description: O WP-Curriculo Premium Vitae é um plugin que permite que usuarios a cadastrem seu curriculo no site para divulgacao online ou para uso do site. Originalmente desenvolvido por William Luis da Silva (http://www.williamluis.com.br/)
-Version: 5.0.10
+Plugin Name: WP Curriculum Vitae
+Plugin URI: https://github.com/tonetlds/wp-curriculum-vitae
+Description: O WP-Curriculo Premium Vitae é um plugin que permite que usuarios a cadastrem seu curriculo no site para divulgacao online ou para uso do site. Originalmente desenvolvido por (William Luis da Silva)[http://www.williamluis.com.br/]
+Version: 5.0.11
 Author: Luciano Tonet
 Author URI: http://www.lucianotonet.com/
 License: GPLv2
-GitHub Plugin URI: https://github.com/tonetlds/wp-curriculo-vitae
+GitHub Plugin URI: https://github.com/tonetlds/wp-curriculum-vitae
 */
 
 include_once(plugin_dir_path( __FILE__ ) . 'include/config.php') ;

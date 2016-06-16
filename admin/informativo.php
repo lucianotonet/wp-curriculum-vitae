@@ -40,7 +40,6 @@ wp_enqueue_script('wpcva_bootstrapJS', plugins_url('../js/bootstrap.min.js', __F
         <li>Shortcode para lista de currículos <b>[listCurriculos_cvp]</b>;</li>
     </ul> 
     
-    <p><a href="http://williamluis.com.br/loja/" target="_blank">Link para para plugin pago</a></p>
     
     <p><strong>Como utilizar</strong></p>
     <p>Para exibir o formulário de cadastro, crie uma pagina e coloque o shortcode <strong>[formCadastro]</strong>.</p>
