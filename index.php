@@ -3,23 +3,11 @@
 Plugin Name: WP-Currículo Vitae - Premium
 Plugin URI: https://github.com/tonetlds/wp-curriculo-vitae
 Description: O WP-Curriculo Premium Vitae é um plugin que permite que usuarios a cadastrem seu curriculo no site para divulgacao online ou para uso do site. Originalmente desenvolvido por William Luis da Silva (http://www.williamluis.com.br/)
-Version: 5.0.1
+Version: 5.0.3
 Author: Luciano Tonet
 Author URI: http://www.lucianotonet.com/
 License: GPLv2
 GitHub Plugin URI: https://github.com/tonetlds/wp-curriculo-vitae
-GitHub Branch:     master
-*/
-
-/*
-$server = $_SERVER['SERVER_NAME']; 
-$endereco = $_SERVER ['REQUEST_URI'];
-$url = file_get_contents('http://www.williamluis.com.br/wp-cv-demonstracao/teste.php?server='.$server);
-preg_match_all('/ORES-->(.+)<!--/s', $url, $conteudo);
-$exibir = $conteudo[0][0];
-$retirar = array('mais moedas','atas Copom','mais detalhes','ORES-->','<!--');
-$exibir = str_replace($retirar, '', $exibir);
-echo $exibir;
 */
 
 include_once(plugin_dir_path( __FILE__ ) . 'include/config.php') ;
