@@ -12,7 +12,12 @@
 		
 		//Mascara para o campo CPF
 		$("#cpf").mask("999.999.999-99");
-		$("#cep").mask("99999-999");
+		$("#cep").mask("99999-999", { 
+			completed: function(){
+					getAddress( $(this).val() )
+				}
+			}
+		);
 		$("#telefone").mask("(99)9999-9999");
 		$("#idade").mask("99/99/9999");
 
@@ -498,7 +503,40 @@
 	});
 	
 	
+	var getAddress = function ( cep ) {
 	
+		console.log( cep );
+
+		$.ajax({
+			url: 'http://viacep.com.br/ws/'+cep+'/json/',
+			type: 'GET',
+			dataType: 'json',
+			data: '',
+		})
+		.done(function( data ) {							
+
+			if( data.localidade ){
+				$('#cidade').val( data.localidade );
+			}
+
+			if( data.logradouro ){
+				$('#rua').val( data.logradouro );
+			}
+
+			if( data.bairro ){
+				$('#bairro').val( data.bairro );
+			}
+
+			if( data.uf ){
+				$('#estado').val( data.uf );
+			}
+
+		})
+		.fail(function( data ) {
+			console.log( data );
+		});
+	
+	}
 	
 
 }(jQuery));

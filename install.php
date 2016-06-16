@@ -279,7 +279,8 @@ global $wpdb, $wpcvp;
 		$column_created_at = $wpdb->get_results( "SELECT created_at FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = '".BD_CURRICULO."' AND column_name = 'created_at'"  );
 
 		if(empty($column_created_at)){
-		   $wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD created_at datetime	COLLATE latin1_bin DEFAULT CURRENT_TIMESTAMP");
+			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP");
+			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP");// ON UPDATE CURRENT_TIMESTAMP");
 		}
 	}
 
