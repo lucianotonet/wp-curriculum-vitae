@@ -280,7 +280,13 @@ global $wpdb, $wpcvp;
 
 		if(empty($column_created_at)){
 			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP");
-			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP");// ON UPDATE CURRENT_TIMESTAMP");
+		}
+
+		// 'UPDATED_AT' Column
+		$column_updated_at = $wpdb->get_results( "SELECT updated_at FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = '".BD_CURRICULO."' AND column_name = 'updated_at'"  );
+
+		if(empty($column_updated_at)){
+			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
 		}
 	}
 
