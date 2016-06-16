@@ -98,7 +98,7 @@ $sql = "SELECT a.*,
       left join ".BD_CONHECI_TECNI." g
         on g.id_cadastro = a.id
 		
-		where 1=1 $where group by a.id order by a.new DESC LIMIT $inicial, $numreg ";
+		where 1=1 $where group by a.id ORDER BY a.new DESC, a.updated_at DESC LIMIT $inicial, $numreg ";
 		
 $query = $wpdb->get_results( $sql );
 
@@ -130,7 +130,7 @@ $sqlRow = "SELECT a.*,
         left join ".BD_CONHECI_TECNI." g
           on g.id_cadastro = a.id
 		   
-		   where 1=1 $where group by a.id order by a.new DESC";
+		   where 1=1 $where group by a.id ORDER BY a.new DESC, a.updated_at DESC";
 		   
 $queryRow = $wpdb->get_results( $sqlRow );
 $quantreg = $wpdb->num_rows; // Quantidade de registros pra paginação
@@ -185,7 +185,7 @@ wp_enqueue_script('wpcvpa_script', plugins_url('js/script.js', __FILE__));
               <option></option>
               <?php
                 
-                  $sqlEstado = "SELECT estado FROM ".BD_CURRICULO." where estado <> ' ' group by estado order by estado asc";
+                  $sqlEstado = "SELECT estado FROM ".BD_CURRICULO." where estado <> ' ' group by estado ORDER BY estado asc";
                   $queryEstado = $wpdb->get_results( $sqlEstado );
               ?>
               <?php foreach($queryEstado as $kE => $vE){?>
@@ -204,7 +204,7 @@ wp_enqueue_script('wpcvpa_script', plugins_url('js/script.js', __FILE__));
             <option></option>
             <?php
               
-                $sqlCidade = "SELECT cidade FROM ".BD_CURRICULO." where cidade <> '' group by cidade order by cidade asc";
+                $sqlCidade = "SELECT cidade FROM ".BD_CURRICULO." where cidade <> '' group by cidade ORDER BY cidade asc";
                 $queryCidade = $wpdb->get_results( $sqlCidade );
             ?>
             <?php foreach($queryCidade as $kC => $vC){?>
@@ -223,7 +223,7 @@ wp_enqueue_script('wpcvpa_script', plugins_url('js/script.js', __FILE__));
             <option></option>
             <?php
               
-                $sqlBairro = "SELECT bairro FROM ".BD_CURRICULO." where bairro <> '' group by bairro order by bairro asc";
+                $sqlBairro = "SELECT bairro FROM ".BD_CURRICULO." where bairro <> '' group by bairro ORDER BY bairro asc";
                 $queryBairro = $wpdb->get_results( $sqlBairro );
             ?>
             <?php foreach($queryBairro as $kB => $vB){?>
@@ -295,6 +295,7 @@ wp_enqueue_script('wpcvpa_script', plugins_url('js/script.js', __FILE__));
         <th>Descrição</th>
         <th>Área de serviço</th>
         <th>Data cadastro</th>
+        <th>Atualizado em</th>
         <th width="60" style="text-align:center;">E-mail</th>
         <th width="50" style="text-align:center;">Arquivo</th>
         <th width="50" style="text-align:center;">PDF</th>
@@ -504,6 +505,12 @@ wp_enqueue_script('wpcvpa_script', plugins_url('js/script.js', __FILE__));
                 <td class="text-right">                 
                   <?php if( $v->new ){ ?><span class="label label-danger" id="cv_<?php echo $v->id ?>">NOVO</span><?php } ?>
                   <?php echo date( 'd/m/Y H:i', strtotime($v->created_at)) ?>
+                </td>
+
+                <td class="text-right">                 
+                  <?php if( !$v->new || $v->updated_at != $v->created_at ){ ?>
+                  <?php echo date( 'd/m/Y H:i', strtotime($v->updated_at)) ?>
+                  <?php } ?>
                 </td>
                 
                 <td style="text-align:center;"><a href="mailto:<?php echo $v->email?>" target="_blank">
