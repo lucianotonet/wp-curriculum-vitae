@@ -273,8 +273,17 @@ global $wpdb, $wpcvp;
 		$column_new = $wpdb->get_results( "SELECT new FROM ".BD_CURRICULO." LIMIT 1"  );
 
 		if(empty($column_new)){
-			var_dump($column_new);
-		   $wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD new BOOLEAN NOT NULL DEFAULT TRUE");
+			
+			function column_new_created_successfuly() {
+			    ?>
+			    <div class="notice notice-success is-dismissible">
+			        <p><?php _e( 'A coluna "new" não existia, porém foi criada com sucesso! Note que agora todos os currículos existentes aparecerão com a label NEW, inclusive os já visualizados..' ); ?></p>
+			    </div>
+			    <?php
+			}
+			
+			add_action( 'admin_notices', 'column_new_created_successfuly' );
+		    $wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD new BOOLEAN NOT NULL DEFAULT TRUE");
 		};
 
 
@@ -291,7 +300,16 @@ global $wpdb, $wpcvp;
 
 
 		if(empty($column_created_at)){
-			var_dump($column_created_at);
+			
+			function column_created_at_created_successfuly() {
+			    ?>
+			    <div class="notice notice-success is-dismissible">
+			        <p><?php _e( 'A coluna "created_at" não existia, mas foi criada com sucesso!' ); ?></p>
+			    </div>
+			    <?php
+			}
+			add_action( 'admin_notices', 'column_created_at_created_successfuly' );
+
 			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP");
 			$wpdb->query("UPDATE `".BD_CURRICULO."` SET `created_at` = CURRENT_TIMESTAMP");
 		};
@@ -300,8 +318,18 @@ global $wpdb, $wpcvp;
 		// $column_updated_at = $wpdb->get_results( "SELECT updated_at FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = '".BD_CURRICULO."' AND column_name = 'updated_at'"  );
 		$column_updated_at = $wpdb->get_results( "SELECT updated_at FROM ".BD_CURRICULO." LIMIT 1"  );
 
+
 		if(empty($column_updated_at)){
-			var_dump($column_updated_at);
+
+			function column_updated_at_created_successfuly() {
+			    ?>
+			    <div class="notice notice-success is-dismissible">
+			        <p><?php _e( 'A coluna "updated_at" não existia, mas foi criada com sucesso!' ); ?></p>
+			    </div>
+			    <?php
+			}
+			add_action( 'admin_notices', 'column_updated_at_created_successfuly' );
+
 			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
 			$wpdb->query("UPDATE `".BD_CURRICULO."` SET `updated_at` = CURRENT_TIMESTAMP");
 		};
