@@ -275,18 +275,28 @@ global $wpdb, $wpcvp;
 		   $wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD new BOOLEAN NOT NULL DEFAULT TRUE");
 		};
 
+
+// ALTER TABLE `alp_wls_curriculo` ADD `created_at` DATETIME NOT NULL DEFAULT 0;
+// UPDATE `alp_wls_curriculo` SET `created_at` = CURRENT_TIMESTAMP;
+
+// ALTER TABLE `alp_wls_curriculo` ADD `updated_at` DATETIME NOT NULL on update 1;
+// UPDATE `alp_wls_curriculo` SET `updated_at` = CURRENT_TIMESTAMP;
+
+
 		// 'CREATED_AT' Column
 		$column_created_at = $wpdb->get_results( "SELECT created_at FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = '".BD_CURRICULO."' AND column_name = 'created_at'"  );
 
 		if(empty($column_created_at)){
-			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP");
+			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD created_at DATETIME NOT NULL");
+			$wpdb->query("UPDATE `".BD_CURRICULO."` SET `created_at` = CURRENT_TIMESTAMP");
 		};
 
 		// 'UPDATED_AT' Column
 		$column_updated_at = $wpdb->get_results( "SELECT updated_at FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = '".BD_CURRICULO."' AND column_name = 'updated_at'"  );
 
 		if(empty($column_updated_at)){
-			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD updated_at DATETIME NOT NULL DEFAULT 0 ON UPDATE 0");
+			$wpdb->query("UPDATE `".BD_CURRICULO."` SET `created_at` = CURRENT_TIMESTAMP");
 		};
 	}
 
