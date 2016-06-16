@@ -300,18 +300,24 @@ global $wpdb, $wpcvp;
 
 
 		if(empty($column_created_at)){
-			
-			function column_created_at_created_successfuly() {
-			    ?>
-			    <div class="notice notice-success is-dismissible">
-			        <p><?php _e( 'A coluna "created_at" não existia, mas foi criada com sucesso!' ); ?></p>
-			    </div>
-			    <?php
-			}
-			add_action( 'admin_notices', 'column_created_at_created_successfuly' );
 
-			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP");
+			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD created_at DATETIME DEFAULT NULL"); // some database dont acpts current_timestamp
+			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP"); //TRY
 			$wpdb->query("UPDATE `".BD_CURRICULO."` SET `created_at` = CURRENT_TIMESTAMP");
+
+			$test_created_at = $wpdb->get_results( "SELECT created_at FROM ".BD_CURRICULO." LIMIT 1" ); // Check again
+
+			if(!empty($test_created_at)){
+				function column_created_at_created_successfuly() {
+				    ?>
+				    <div class="notice notice-success is-dismissible">
+				        <p><?php _e( 'A coluna "created_at" não existia, mas foi criada com sucesso!' ); ?></p>
+				    </div>
+				    <?php
+				}
+				add_action( 'admin_notices', 'column_created_at_created_successfuly' );
+			};
+				
 		};
 
 		// 'UPDATED_AT' Column
@@ -321,18 +327,26 @@ global $wpdb, $wpcvp;
 
 		if(empty($column_updated_at)){
 
-			function column_updated_at_created_successfuly() {
-			    ?>
-			    <div class="notice notice-success is-dismissible">
-			        <p><?php _e( 'A coluna "updated_at" não existia, mas foi criada com sucesso!' ); ?></p>
-			    </div>
-			    <?php
-			}
-			add_action( 'admin_notices', 'column_updated_at_created_successfuly' );
 
-			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD updated_at DATETIME DEFAULT NULL"); // some database dont acpts current_timestamp
+			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"); //TRY
 			$wpdb->query("UPDATE `".BD_CURRICULO."` SET `updated_at` = CURRENT_TIMESTAMP");
+			
+			// Check again
+			$test_updated_at = $wpdb->get_results( "SELECT updated_at FROM ".BD_CURRICULO." LIMIT 1"  );
+			if(!empty($test_updated_at)){
+				function column_updated_at_created_successfuly() {
+				    ?>
+				    <div class="notice notice-success is-dismissible">
+				        <p><?php _e( 'A coluna "updated_at" não existia, mas foi criada com sucesso!' ); ?></p>
+				    </div>
+				    <?php
+				}
+				add_action( 'admin_notices', 'column_updated_at_created_successfuly' );
+			};
+
 		};
+
 	}
 
 	updateDataBase();
