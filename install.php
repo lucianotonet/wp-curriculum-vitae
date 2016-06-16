@@ -301,7 +301,7 @@ global $wpdb, $wpcvp;
 
 		if(empty($column_created_at)){
 
-			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD created_at DATETIME DEFAULT NULL"); // some database dont acpts current_timestamp
+			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD created_at DATETIME DEFAULT 0"); // some database dont acpts current_timestamp
 			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP"); //TRY
 			$wpdb->query("UPDATE `".BD_CURRICULO."` SET `created_at` = CURRENT_TIMESTAMP");
 
@@ -328,7 +328,7 @@ global $wpdb, $wpcvp;
 		if(empty($column_updated_at)){
 
 
-			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD updated_at DATETIME DEFAULT NULL"); // some database dont acpts current_timestamp
+			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD updated_at DATETIME DEFAULT 0"); // some database dont acpts current_timestamp
 			$wpdb->query("ALTER TABLE ".BD_CURRICULO." ADD updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"); //TRY
 			$wpdb->query("UPDATE `".BD_CURRICULO."` SET `updated_at` = CURRENT_TIMESTAMP");
 			
