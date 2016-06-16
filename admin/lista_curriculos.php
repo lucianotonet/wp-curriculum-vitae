@@ -98,7 +98,7 @@ $sql = "SELECT a.*,
       left join ".BD_CONHECI_TECNI." g
         on g.id_cadastro = a.id
 		
-		where 1=1 $where group by a.id order by a.nome asc LIMIT $inicial, $numreg ";
+		where 1=1 $where group by a.id order by a.new DESC LIMIT $inicial, $numreg ";
 		
 $query = $wpdb->get_results( $sql );
 
@@ -130,7 +130,7 @@ $sqlRow = "SELECT a.*,
         left join ".BD_CONHECI_TECNI." g
           on g.id_cadastro = a.id
 		   
-		   where 1=1 $where group by a.id order by a.nome asc";
+		   where 1=1 $where group by a.id order by a.new DESC";
 		   
 $queryRow = $wpdb->get_results( $sqlRow );
 $quantreg = $wpdb->num_rows; // Quantidade de registros pra paginação

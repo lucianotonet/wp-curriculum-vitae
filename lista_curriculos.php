@@ -74,9 +74,11 @@ $sql = "SELECT a.*,
       left join ".BD_CONHECI_TECNI." g
         on g.id_cadastro = a.id
 		
-		where 1=1 and a.status = 2 $where group by a.id order by a.nome asc LIMIT $inicial, $numreg ";
-		
+    where 1=1 and a.status = 2 $where GROUP BY a.id ORDER BY a.new DESC LIMIT $inicial, $numreg ";
+    
 $query = $wpdb->get_results( $sql );
+
+// where 1=1 and a.status = 2 $where GROUP BY a.id ORDER BY a.nome asc LIMIT $inicial, $numreg ";
 
 $sqlRow = "SELECT a.*,
 				  b.area,
@@ -106,11 +108,13 @@ $sqlRow = "SELECT a.*,
         left join ".BD_CONHECI_TECNI." g
         on g.id_cadastro = a.id
 		   
-		   where 1=1 and a.status = 2 $where group by a.id order by a.nome asc";
-		   
+       where 1=1 and a.status = 2 $where GROUP BY a.id ORDER BY a.new DESC";
+       
 $queryRow = $wpdb->get_results( $sqlRow );
 $quantreg = $wpdb->num_rows; // Quantidade de registros pra paginação
 
+// where 1=1 and a.status = 2 $where GROUP BY a.id ORDER BY a.nome asc";
+       
 include( plugin_dir_path( __FILE__ ) . 'classes/estados.php' );
 
 ?>
@@ -130,7 +134,7 @@ include( plugin_dir_path( __FILE__ ) . 'classes/estados.php' );
                 <option value="">Selecione o estado</option>
                 <?php
               
-                    $sqlEstado = "SELECT estado FROM ".BD_CURRICULO." where 1=1 and status = 2 group by estado";
+                    $sqlEstado = "SELECT estado FROM ".BD_CURRICULO." where 1=1 and status = 2 GROUP BY estado";
                     $queryEstado = $wpdb->get_results( $sqlEstado );
                 ?>
                 <?php foreach($queryEstado as $kE => $vE){?>
