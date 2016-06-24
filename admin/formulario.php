@@ -4,8 +4,8 @@ global $wpdb, $wpcvp;
 $id_cadastro = @$_GET['id_cadastro'];
 
 if(isset($_POST['cadastrar'])){
-	#print_r($_POST);
-	#exit;
+	// print_r($_POST);
+	// exit;
 	include_once( plugin_dir_path( __FILE__ ) . 'include/enviarCadastro.php' );
 }
 

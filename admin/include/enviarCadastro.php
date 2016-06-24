@@ -144,6 +144,11 @@ $delReg = 0;
 
 if(@$_POST['mod']=="new"){
 
+	$date = date('Y-m-d H:i:s');
+	$var['created_at'] = $date;
+	$var['updated_at'] = $date;
+	$var['new'] = true;
+
 	$qry = $wpdb->insert(BD_CURRICULO, $var );
 	$id_cadastro = $wpdb->insert_id;
 
@@ -153,6 +158,10 @@ if(@$_POST['mod']=="new"){
 }
 
 if(@$_POST['mod']=="edit"){
+
+	$date = date('Y-m-d H:i:s');	
+	$var['updated_at'] = $date;
+	$var['new'] = false;
 
 	if(@$_POST['excluirConta']==1){
   
