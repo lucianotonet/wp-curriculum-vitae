@@ -277,7 +277,7 @@ global $wpdb, $wpcvp;
 			function column_new_created_successfuly() {
 			    ?>
 			    <div class="notice notice-success is-dismissible">
-			        <p><?php _e( 'A coluna "new" não existia, porém foi criada com sucesso! Note que agora todos os currículos existentes aparecerão com a label NEW, inclusive os já visualizados..' ); ?></p>
+			        <p><?php _e( 'A coluna "new" não existie! Tentando criar... <br/><small>Note que agora todos os currículos existentes aparecerão com a label NEW, inclusive os já visualizados...</small>' ); ?></p>
 			    </div>
 			    <?php
 			}
