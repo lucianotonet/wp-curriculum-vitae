@@ -513,7 +513,9 @@ wp_enqueue_script('wpcvpa_script', plugins_url('js/script.js', __FILE__));
 
                 <td class="text-right">                 
                   <?php // if( !$v->new || $v->updated_at != $v->created_at && date( 'd/m/Y', strtotime($v->updated_at) ) !== '01/01/1970' ){ ?>
-                  <?php if( date( 'd/m/Y', strtotime($v->updated_at) ) !== '01/01/1970' ){ ?>
+                  <?php // print_r($v->created_at) ?>
+                  <?php // print_r($v->updated_at) ?>
+                  <?php if( date( 'd/m/Y', strtotime($v->updated_at) ) !== '01/01/1970' && date( 'd/m/Y', strtotime($v->created_at) ) != date( 'd/m/Y', strtotime($v->updated_at) ) ){ ?>
                     <?php echo date( 'd/m/Y', strtotime($v->updated_at)) ?> - <?php echo date( 'H:i', strtotime($v->updated_at)) ?>
                   <?php } ?>
                 </td>
